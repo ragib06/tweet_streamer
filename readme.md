@@ -1,4 +1,4 @@
-Generates tweet data using the [Twitter Streaming API](https://dev.twitter.com/streaming/overview) and then stores cleaned tweet along with keyphrase into an output file (data/tweet.txt).
+Captures real time tweet data using the [Twitter Streaming API](https://dev.twitter.com/streaming/overview) and then stores cleaned tweets along with optional features. This streamer has been used to generate tweets follwing the algorithm in the paper titled: [Keyphrase Extraction Using Deep Recurrent Neural Networks on Twitter](http://jkx.fudan.edu.cn/~qzhang/paper/keyphrase.emnlp2016.pdf)
 
 Requirements:
 -------------
@@ -26,8 +26,9 @@ Usage:
 ------
     - Run:
         - python ts_generator.py [-n <num_max_tweets>]
+        - For 1000 tweets, run:
+            python ts_generator.py -n 1000
     - Custom Listener:
         - Inherit TSListener and override the methods filter_tweet and dump_tweet
         - Example of a custom listener: KPListener
-        - The example kp_listener uses 'Algorithm I' from the following paper: [Keyphrase Extraction Using Deep Recurrent
-          Neural Networks on Twitter](http://jkx.fudan.edu.cn/~qzhang/paper/keyphrase.emnlp2016.pdf)
+        - To run the example import KPListener in ts_generator and set TweetStreamListener to KPListener
